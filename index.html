@@ -43,12 +43,23 @@
       max-width: 400px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
       cursor: pointer;
+      transition: transform 0.1s;
+    }
+    .comment-box:active {
+      transform: scale(0.98);
     }
     .copied {
       font-size: 14px;
       color: green;
       margin-top: 5px;
       display: none;
+      animation: fadeInOut 2s ease;
+    }
+    @keyframes fadeInOut {
+      0% { opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { opacity: 0; }
     }
   </style>
 </head>
@@ -75,13 +86,29 @@
     }
 
     function copyComment() {
-      const comment = document.getElementById("commentText").innerText;
-      navigator.clipboard.writeText(comment).then(() => {
-        document.getElementById("copiedMsg").style.display = "block";
+      const text = document.getElementById("commentText").innerText;
+      const copiedMsg = document.getElementById("copiedMsg");
+
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(text).then(() => {
+          copiedMsg.style.display = "block";
+          setTimeout(() => {
+            copiedMsg.style.display = "none";
+          }, 2000);
+        });
+      } else {
+        // fallback for older browsers
+        const textarea = document.createElement("textarea");
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textarea);
+        copiedMsg.style.display = "block";
         setTimeout(() => {
-          document.getElementById("copiedMsg").style.display = "none";
+          copiedMsg.style.display = "none";
         }, 2000);
-      });
+      }
     }
   </script>
 
