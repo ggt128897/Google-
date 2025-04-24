@@ -7,12 +7,11 @@
   <style>
     body {
       margin: 0;
-      font-family: "Noto Sans TC", sans-serif;
+      font-family: sans-serif;
       background: #f7f7f7;
       color: #333;
       text-align: center;
     }
-
     .header {
       position: relative;
       background-image: url('AF3B6BFB-42BA-4A3C-BCF3-3A21BA2CCF0C.jpeg');
@@ -20,44 +19,25 @@
       background-position: center;
       color: white;
       padding: 80px 20px;
-      overflow: hidden;
     }
-
-    /* 日初色系遮罩 */
     .header::before {
       content: "";
       position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: linear-gradient(to top, rgba(255, 183, 94, 0.5), rgba(255, 236, 179, 0));
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0));
       z-index: 0;
     }
-
-    /* 葉子紋理圖層 */
-    .header::after {
-      content: "";
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background-image: url('https://i.imgur.com/hPi5t2v.png'); /* 建議使用淡綠葉影 PNG 圖 */
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-      opacity: 0.15;
-      z-index: 1;
-      pointer-events: none;
-    }
-
     .header h1, .header p {
       position: relative;
-      z-index: 2;
-      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+      z-index: 1;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
     }
-
     .content {
       padding: 30px 20px;
     }
-
     .btn {
       background-color: #007AFF;
       color: white;
@@ -68,11 +48,9 @@
       cursor: pointer;
       margin: 20px 0;
     }
-
     .btn:hover {
       background-color: #005FCC;
     }
-
     .comment-box {
       background: #fff;
       padding: 15px;
@@ -83,11 +61,9 @@
       cursor: pointer;
       transition: transform 0.1s;
     }
-
     .comment-box:active {
       transform: scale(0.98);
     }
-
     .copied {
       font-size: 14px;
       color: green;
@@ -95,7 +71,6 @@
       display: none;
       animation: fadeInOut 2s ease;
     }
-
     @keyframes fadeInOut {
       0% { opacity: 0; }
       10% { opacity: 1; }
