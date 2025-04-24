@@ -75,12 +75,25 @@
 
     <div class="comment-box" onclick="copyComment()">
       <p><strong>點我複製評論內容：</strong></p>
-      <p id="commentText">店員Aaron服務態度好且專業、細心。推薦大家來配眼鏡！</p>
+      <p id="commentText"></p>
       <p class="copied" id="copiedMsg">已複製！請前往 Google 評論頁貼上</p>
     </div>
   </div>
 
   <script>
+    const commentOptions = [
+      "店員Aaron服務態度好且專業、細心。推薦大家來配眼鏡！",
+      "服務親切又專業，Aaron真的很細心，值得推薦！",
+      "很棒的配鏡體驗，感謝Aaron用心介紹，五星推薦！",
+      "推薦Aaron！服務親切仔細，讓人感覺很安心。",
+      "眼鏡配得很好，Aaron的解說也很清楚，非常推薦！"
+    ];
+
+    window.onload = () => {
+      const randomComment = commentOptions[Math.floor(Math.random() * commentOptions.length)];
+      document.getElementById("commentText").innerText = randomComment;
+    };
+
     function goToGoogleReview() {
       window.location.href = "https://search.google.com/local/writereview?placeid=ChIJf09YS7XlZzQReDc6VS3l4Nk";
     }
@@ -97,7 +110,6 @@
           }, 2000);
         });
       } else {
-        // fallback for older browsers
         const textarea = document.createElement("textarea");
         textarea.value = text;
         document.body.appendChild(textarea);
