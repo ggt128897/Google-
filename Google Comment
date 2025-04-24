@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>OWNDAYS 宜蘭金東購物商場店｜五星好評推薦</title>
   <style>
     body {
@@ -42,6 +42,24 @@
       margin: 0 auto;
       max-width: 400px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.1s;
+    }
+    .comment-box:active {
+      transform: scale(0.98);
+    }
+    .copied {
+      font-size: 14px;
+      color: green;
+      margin-top: 5px;
+      display: none;
+      animation: fadeInOut 2s ease;
+    }
+    @keyframes fadeInOut {
+      0% { opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { opacity: 0; }
     }
   </style>
 </head>
@@ -55,17 +73,54 @@
   <div class="content">
     <button class="btn" onclick="goToGoogleReview()">點我留下 Google 評論</button>
 
-    <div class="comment-box">
-      <p><strong>建議評論內容：</strong></p>
-      <p>「Aaron 表現的非常細心專業、非常推薦！」</p>
-      <small>（可長按複製使用）</small>
+    <div class="comment-box" onclick="copyComment()">
+      <p><strong>點我複製評論內容：</strong></p>
+      <p id="commentText"></p>
+      <p class="copied" id="copiedMsg">已複製！請前往 Google 評論頁貼上</p>
     </div>
   </div>
 
   <script>
+    const commentOptions = [
+      "店員Aaron服務態度好且專業、細心。推薦大家來配眼鏡！",
+      "服務親切又專業，Aaron真的很細心，值得推薦！",
+      "很棒的配鏡體驗，感謝Aaron用心介紹，五星推薦！",
+      "推薦Aaron！服務親切仔細，讓人感覺很安心。",
+      "眼鏡配得很好，Aaron的解說也很清楚，非常推薦！"
+    ];
+
+    window.onload = () => {
+      const randomComment = commentOptions[Math.floor(Math.random() * commentOptions.length)];
+      document.getElementById("commentText").innerText = randomComment;
+    };
+
     function goToGoogleReview() {
-      // 直接導向 Google 評論頁面（已根據 place_id 生成）
       window.location.href = "https://search.google.com/local/writereview?placeid=ChIJf09YS7XlZzQReDc6VS3l4Nk";
+    }
+
+    function copyComment() {
+      const text = document.getElementById("commentText").innerText;
+      const copiedMsg = document.getElementById("copiedMsg");
+
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(text).then(() => {
+          copiedMsg.style.display = "block";
+          setTimeout(() => {
+            copiedMsg.style.display = "none";
+          }, 2000);
+        });
+      } else {
+        const textarea = document.createElement("textarea");
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textarea);
+        copiedMsg.style.display = "block";
+        setTimeout(() => {
+          copiedMsg.style.display = "none";
+        }, 2000);
+      }
     }
   </script>
 
