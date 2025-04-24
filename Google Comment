@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OWNDAYS 宜蘭金東購物商場店｜五星好評推薦</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: #f7f7f7;
+      color: #333;
+      text-align: center;
+    }
+    .header {
+      background-image: url('AF3B6BFB-42BA-4A3C-BCF3-3A21BA2CCF0C.jpeg');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 80px 20px;
+    }
+    .content {
+      padding: 30px 20px;
+    }
+    .btn {
+      background-color: #007AFF;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin: 20px 0;
+    }
+    .btn:hover {
+      background-color: #005FCC;
+    }
+    .comment-box {
+      background: #fff;
+      padding: 15px;
+      border-radius: 8px;
+      margin: 0 auto;
+      max-width: 400px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>OWNDAYS 宜蘭金東購物商場店</h1>
+    <p>留下您寶貴的五星好評吧！</p>
+  </div>
+
+  <div class="content">
+    <button class="btn" onclick="goToGoogleReview()">點我留下 Google 評論</button>
+
+    <div class="comment-box">
+      <p><strong>建議評論內容：</strong></p>
+      <p>「Aaron 表現的非常細心專業、非常推薦！」</p>
+      <small>（可長按複製使用）</small>
+    </div>
+  </div>
+
+  <script>
+    function goToGoogleReview() {
+      // 直接導向 Google 評論頁面（已根據 place_id 生成）
+      window.location.href = "https://search.google.com/local/writereview?placeid=ChIJf09YS7XlZzQReDc6VS3l4Nk";
+    }
+  </script>
+
+</body>
+</html>
