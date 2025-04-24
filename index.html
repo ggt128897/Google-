@@ -3,36 +3,40 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>OWNDAYS 宜蘭金東購物商場店｜五星好評推薦</title>
+  <title>OWNDAYS 宜蘭金東購物商場店｜五星爆推</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
     body {
       margin: 0;
-      font-family: 'Noto Sans TC', 'Yu Gothic UI', sans-serif;
-      background: #FAFAF8;
-      color: #333333;
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(135deg, #FF00FF, #00FFFF);
+      color: #fff;
       text-align: center;
-      line-height: 1.6;
+      overflow-x: hidden;
     }
 
     .header {
-      background-image: url('AF3B6BFB-42BA-4A3C-BCF3-3A21BA2CCF0C.jpeg');
-      background-size: cover;
-      background-position: center;
-      color: #FFFFFF;
-      padding: 70px 20px;
-      border-bottom: 1px solid #DDD;
+      background: radial-gradient(circle at center, #000 10%, #5500FF 90%);
+      padding: 80px 20px;
+      animation: pulseBg 6s infinite alternate;
+    }
+
+    @keyframes pulseBg {
+      0% { background-color: #000; }
+      100% { background-color: #FF0099; }
     }
 
     .header h1 {
+      font-size: 36px;
       margin: 0;
-      font-size: 28px;
-      font-weight: normal;
-      letter-spacing: 1px;
+      letter-spacing: 3px;
+      text-shadow: 0 0 10px #0ff, 0 0 20px #f0f;
     }
 
     .header p {
-      font-size: 16px;
-      color: #F0F0F0;
+      font-size: 18px;
+      color: #FFD700;
       margin-top: 10px;
     }
 
@@ -41,48 +45,53 @@
     }
 
     .btn {
-      background-color: #A47148;
-      color: white;
-      border: none;
-      padding: 12px 28px;
-      font-size: 16px;
-      border-radius: 4px;
+      background: #00FF00;
+      color: #000;
+      border: 3px dashed #000;
+      padding: 15px 30px;
+      font-size: 20px;
+      border-radius: 50px;
       cursor: pointer;
-      transition: background 0.3s ease;
+      transition: transform 0.3s ease, background 0.3s;
     }
 
     .btn:hover {
-      background-color: #8A5B35;
+      background: #FFFF00;
+      transform: scale(1.05);
     }
 
     .comment-box {
-      background: #FFFFFF;
-      border: 1px solid #DDDDDD;
-      padding: 20px;
-      border-radius: 6px;
-      margin: 30px auto 0;
-      max-width: 420px;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      background: #000;
+      color: #0FF;
+      padding: 25px;
+      border-radius: 20px;
+      margin: 30px auto;
+      max-width: 500px;
+      border: 2px solid #FF00FF;
+      box-shadow: 0 0 20px #FF00FF, 0 0 40px #00FFFF;
       cursor: pointer;
-      transition: transform 0.1s ease;
+      transition: transform 0.2s ease;
     }
 
-    .comment-box:active {
-      transform: scale(0.98);
+    .comment-box:hover {
+      transform: rotate(-1deg) scale(1.02);
     }
 
     .copied {
       font-size: 14px;
-      color: #A47148;
-      margin-top: 8px;
+      color: #00FF00;
+      margin-top: 10px;
       display: none;
-      animation: fadeInOut 2s ease;
+      animation: glitch 2s ease;
     }
 
-    @keyframes fadeInOut {
+    @keyframes glitch {
       0% { opacity: 0; }
-      10% { opacity: 1; }
-      90% { opacity: 1; }
+      10% { opacity: 1; transform: translateX(0); }
+      20% { transform: translateX(-2px); }
+      30% { transform: translateX(2px); }
+      40% { transform: translateX(-2px); }
+      50% { transform: translateX(0); }
       100% { opacity: 0; }
     }
   </style>
@@ -90,27 +99,27 @@
 <body>
 
   <div class="header">
-    <h1>OWNDAYS 宜蘭金東購物商場店</h1>
-    <p>留下您寶貴的五星好評吧！</p>
+    <h1>OWNDAYS 金東店超狂服務！</h1>
+    <p>立刻來給個超爆五星好評！</p>
   </div>
 
   <div class="content">
-    <button class="btn" onclick="goToGoogleReview()">點我留下 Google 評論</button>
+    <button class="btn" onclick="goToGoogleReview()">點我進入未來評論宇宙</button>
 
     <div class="comment-box" onclick="copyComment()">
-      <p><strong>點我複製評論內容：</strong></p>
+      <p><strong>點我複製未來語錄：</strong></p>
       <p id="commentText"></p>
-      <p class="copied" id="copiedMsg">已複製！請前往 Google 評論頁貼上</p>
+      <p class="copied" id="copiedMsg">已複製！神速貼上評論！</p>
     </div>
   </div>
 
   <script>
     const commentOptions = [
-      "店員Aaron服務態度好且專業、細心。推薦大家來配眼鏡！",
-      "服務親切又專業，Aaron真的很細心，值得推薦！",
-      "很棒的配鏡體驗，感謝Aaron用心介紹，五星推薦！",
-      "推薦Aaron！服務親切仔細，讓人感覺很安心。",
-      "眼鏡配得很好，Aaron的解說也很清楚，非常推薦！"
+      "Aaron 爆炸專業！這服務太未來感了，強烈推薦！",
+      "來這邊配眼鏡像進入科技宇宙，Aaron 是宇宙級服務天才！",
+      "眼鏡讚爆！店員 Aaron 超給力，配鏡一級棒！",
+      "超潮體驗！推薦 Aaron，閃耀專業光芒！",
+      "每次來都像參加未來秀，謝謝 Aaron 的超高水準！"
     ];
 
     window.onload = () => {
