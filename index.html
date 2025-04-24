@@ -7,52 +7,37 @@
   <style>
     body {
       margin: 0;
-      font-family: "Helvetica Neue", "Segoe UI", sans-serif;
+      font-family: sans-serif;
       background: #f7f7f7;
       color: #333;
       text-align: center;
     }
-
     .header {
       position: relative;
-      background-image: url('YOUR_IMAGE_PATH.jpeg'); /* 替換為你自己的背景圖 */
+      background-image: url('AF3B6BFB-42BA-4A3C-BCF3-3A21BA2CCF0C.jpeg');
       background-size: cover;
       background-position: center;
       color: white;
       padding: 80px 20px;
     }
-
     .header::before {
-      content: '';
+      content: "";
       position: absolute;
       top: 0;
       left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0));
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0));
       z-index: 0;
     }
-
-    .header h1,
-    .header p {
+    .header h1, .header p {
       position: relative;
       z-index: 1;
-      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
     }
-
-    .header h1 {
-      font-size: 28px;
-      margin-bottom: 10px;
-    }
-
-    .header p {
-      font-size: 18px;
-    }
-
     .content {
       padding: 30px 20px;
     }
-
     .btn {
       background-color: #007AFF;
       color: white;
@@ -62,28 +47,23 @@
       border-radius: 8px;
       cursor: pointer;
       margin: 20px 0;
-      transition: background-color 0.3s ease;
     }
-
     .btn:hover {
       background-color: #005FCC;
     }
-
     .comment-box {
       background: #fff;
       padding: 15px;
       border-radius: 8px;
       margin: 0 auto;
       max-width: 400px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.08);
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
       cursor: pointer;
       transition: transform 0.1s;
     }
-
     .comment-box:active {
       transform: scale(0.98);
     }
-
     .copied {
       font-size: 14px;
       color: green;
@@ -91,7 +71,6 @@
       display: none;
       animation: fadeInOut 2s ease;
     }
-
     @keyframes fadeInOut {
       0% { opacity: 0; }
       10% { opacity: 1; }
