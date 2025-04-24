@@ -1,108 +1,128 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-Hant">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OWNDAYS 評論快捷頁</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
-
-        /* 五星好評區塊 */
-        .review-highlight {
-            display: inline-block;
-            background-color: #fff;
-            padding: 10px 20px;
-            border-radius: 5px;
-            margin: 15px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        .review-highlight .stars {
-            font-size: 28px; /* 輕微加大星星 */
-            color: #ffd700; /* 金色星星 */
-            font-weight: bold;
-        }
-
-        .review-highlight p {
-            font-size: 20px;
-            color: #333;
-            font-weight: normal;
-        }
-
-        /* Google 評論按鈕 */
-        .button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            font-size: 18px;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            margin-top: 20px;
-            text-decoration: none;
-        }
-
-        .button:hover {
-            background-color: #45a049;
-        }
-
-        /* 複製推薦語區塊 */
-        .copy-area {
-            margin-top: 20px;
-        }
-
-        .copy-button {
-            background-color: #007BFF;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
-        .copy-button:hover {
-            background-color: #0056b3;
-        }
-
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>OWNDAYS 宜蘭金東購物商場店｜五星好評推薦</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: #f7f7f7;
+      color: #333;
+      text-align: center;
+    }
+    .header {
+      background-image: url('AF3B6BFB-42BA-4A3C-BCF3-3A21BA2CCF0C.jpeg');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 80px 20px;
+    }
+    .content {
+      padding: 30px 20px;
+    }
+    .btn {
+      background-color: #007AFF;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin: 20px 0;
+    }
+    .btn:hover {
+      background-color: #005FCC;
+    }
+    .comment-box {
+      background: #fff;
+      padding: 15px;
+      border-radius: 8px;
+      margin: 0 auto;
+      max-width: 400px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.1s;
+    }
+    .comment-box:active {
+      transform: scale(0.98);
+    }
+    .copied {
+      font-size: 14px;
+      color: green;
+      margin-top: 5px;
+      display: none;
+      animation: fadeInOut 2s ease;
+    }
+    @keyframes fadeInOut {
+      0% { opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+  </style>
 </head>
 <body>
-    <h1>OWNDAYS 宜蘭金東購物商場店 評論快捷頁</h1>
 
-    <!-- 五星好評區塊 -->
-    <div class="review-highlight">
-        <span class="stars">★★★★★</span>
-        <p>五星好評！</p>
+  <div class="header">
+    <h1>OWNDAYS 宜蘭金東購物商場店</h1>
+    <p>留下您寶貴的五星好評吧！</p>
+  </div>
+
+  <div class="content">
+    <button class="btn" onclick="goToGoogleReview()">點我留下 Google 評論</button>
+
+    <div class="comment-box" onclick="copyComment()">
+      <p><strong>點我複製評論內容：</strong></p>
+      <p id="commentText"></p>
+      <p class="copied" id="copiedMsg">已複製！請前往 Google 評論頁貼上</p>
     </div>
+  </div>
 
-    <!-- Google 評論按鈕 -->
-    <a href="https://www.google.com/maps/place/OWNDAYS+宜蘭金東購物商場店" class="button" target="_blank">
-        前往 Google 評論
-    </a>
+  <script>
+    const commentOptions = [
+      "店員Aaron服務態度好且專業、細心。推薦大家來配眼鏡！",
+      "服務親切又專業，Aaron真的很細心，值得推薦！",
+      "很棒的配鏡體驗，感謝Aaron用心介紹，五星推薦！",
+      "推薦Aaron！服務親切仔細，讓人感覺很安心。",
+      "眼鏡配得很好，Aaron的解說也很清楚，非常推薦！"
+    ];
 
-    <!-- 預設推薦語區塊 -->
-    <div class="copy-area">
-        <p>複製以下推薦語並留下評論：</p>
-        <textarea id="recommendation-text" readonly rows="4" cols="50">店員Aaron服務態度好且專業、細心。推薦大家來配眼鏡！</textarea>
-        <br>
-        <button class="copy-button" onclick="copyText()">複製推薦語</button>
-    </div>
+    window.onload = () => {
+      const randomComment = commentOptions[Math.floor(Math.random() * commentOptions.length)];
+      document.getElementById("commentText").innerText = randomComment;
+    };
 
-    <script>
-        // 複製推薦語功能
-        function copyText() {
-            var copyText = document.getElementById("recommendation-text");
-            copyText.select();
-            copyText.setSelectionRange(0, 99999); // For mobile devices
-            document.execCommand("copy");
-            alert("推薦語已複製！");
-        }
-    </script>
+    function goToGoogleReview() {
+      window.location.href = "https://search.google.com/local/writereview?placeid=ChIJf09YS7XlZzQReDc6VS3l4Nk";
+    }
+
+    function copyComment() {
+      const text = document.getElementById("commentText").innerText;
+      const copiedMsg = document.getElementById("copiedMsg");
+
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(text).then(() => {
+          copiedMsg.style.display = "block";
+          setTimeout(() => {
+            copiedMsg.style.display = "none";
+          }, 2000);
+        });
+      } else {
+        const textarea = document.createElement("textarea");
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textarea);
+        copiedMsg.style.display = "block";
+        setTimeout(() => {
+          copiedMsg.style.display = "none";
+        }, 2000);
+      }
+    }
+  </script>
+
 </body>
 </html>
