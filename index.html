@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OWNDAYS 評論快捷頁</title>
     <style>
-        /* 頁面背景顏色、字型、排版設定 */
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
@@ -14,33 +13,29 @@
             text-align: center;
         }
 
-        /* 評論區塊 */
+        /* 五星好評區塊 */
         .review-highlight {
-            text-align: center;
-            padding: 15px;
-            background-color: #ffd700; /* 金色背景 */
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            margin: 20px 0;
+            display: inline-block;
+            background-color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         .review-highlight .stars {
-            font-size: 30px; /* 讓星星更大 */
-            color: gold; /* 金色星星 */
+            font-size: 28px; /* 輕微加大星星 */
+            color: #ffd700; /* 金色星星 */
+            font-weight: bold;
         }
 
         .review-highlight p {
-            font-size: 24px; /* 文字稍大 */
-            font-weight: bold;
-            color: #fff; /* 白色文字 */
-        }
-
-        /* 其他內容樣式 */
-        h1 {
+            font-size: 20px;
             color: #333;
-            margin-top: 30px;
+            font-weight: normal;
         }
 
+        /* Google 評論按鈕 */
         .button {
             background-color: #4CAF50;
             color: white;
@@ -49,7 +44,7 @@
             border: none;
             cursor: pointer;
             border-radius: 5px;
-            margin: 20px;
+            margin-top: 20px;
             text-decoration: none;
         }
 
@@ -57,15 +52,22 @@
             background-color: #45a049;
         }
 
-        .copy-button {
+        /* 複製推薦語區塊 */
+        .copy-area {
             margin-top: 20px;
-            background-color: #007BFF;
         }
 
-        /* Google 評論按鈕區域 */
-        .google-review {
-            text-align: center;
-            margin-top: 20px;
+        .copy-button {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .copy-button:hover {
+            background-color: #0056b3;
         }
 
     </style>
@@ -80,11 +82,9 @@
     </div>
 
     <!-- Google 評論按鈕 -->
-    <div class="google-review">
-        <a href="https://www.google.com/maps/place/OWNDAYS+宜蘭金東購物商場店" class="button" target="_blank">
-            前往 Google 評論
-        </a>
-    </div>
+    <a href="https://www.google.com/maps/place/OWNDAYS+宜蘭金東購物商場店" class="button" target="_blank">
+        前往 Google 評論
+    </a>
 
     <!-- 預設推薦語區塊 -->
     <div class="copy-area">
