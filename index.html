@@ -12,6 +12,7 @@
       color: #333;
       text-align: center;
     }
+
     .header {
       position: relative;
       background-image: url('AF3B6BFB-42BA-4A3C-BCF3-3A21BA2CCF0C.jpeg');
@@ -21,6 +22,7 @@
       padding: 80px 20px;
       overflow: hidden;
     }
+
     .header::before {
       content: "";
       position: absolute;
@@ -28,48 +30,55 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background:
-        linear-gradient(to top, rgba(85, 139, 47, 0.7), rgba(200, 230, 201, 0.2), rgba(85, 139, 47, 0.7)),
-        url('https://www.transparenttextures.com/patterns/grass.png');
-      background-size: cover;
-      background-repeat: repeat;
+      background: linear-gradient(to bottom, rgba(220, 255, 220, 0.6), rgba(124, 179, 66, 0.8), rgba(56, 142, 60, 0.9));
       z-index: 0;
-      opacity: 0.9;
     }
+
     .header h1, .header p {
       position: relative;
       z-index: 1;
       text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+      margin: 0.5em 0;
     }
+
     .content {
       padding: 30px 20px;
     }
+
     .btn {
       background-color: #4CAF50;
       color: white;
       border: none;
-      padding: 15px 30px;
-      font-size: 18px;
+      padding: 15px 20px;
+      font-size: 1rem;
+      border-radius: 6px;
       cursor: pointer;
       margin: 20px 0;
+      width: 100%;
+      max-width: 360px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       transition: background-color 0.3s ease;
     }
+
     .btn:hover {
       background-color: #388E3C;
     }
+
     .comment-box {
       background: #fff;
       padding: 20px;
       margin: 0 auto;
       max-width: 420px;
+      width: 90%;
       box-shadow: 0 4px 12px rgba(0,0,0,0.08);
       cursor: pointer;
       transition: transform 0.1s;
     }
+
     .comment-box:active {
       transform: scale(0.98);
     }
+
     .copied {
       font-size: 14px;
       color: green;
@@ -77,11 +86,32 @@
       display: none;
       animation: fadeInOut 2s ease;
     }
+
     @keyframes fadeInOut {
       0% { opacity: 0; }
       10% { opacity: 1; }
       90% { opacity: 1; }
       100% { opacity: 0; }
+    }
+
+    /* 手機字體與間距調整 */
+    @media (max-width: 600px) {
+      .header {
+        padding: 60px 15px;
+      }
+
+      .btn {
+        font-size: 1.1rem;
+        padding: 16px;
+      }
+
+      .header h1 {
+        font-size: 1.6rem;
+      }
+
+      .header p {
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
