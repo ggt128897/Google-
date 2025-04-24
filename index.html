@@ -7,7 +7,7 @@
   <style>
     body {
       margin: 0;
-      font-family: sans-serif;
+      font-family: "Helvetica Neue", sans-serif;
       background: #f7f7f7;
       color: #333;
       text-align: center;
@@ -19,6 +19,9 @@
       background-position: center;
       color: white;
       padding: 80px 20px;
+      border-bottom-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+      overflow: hidden;
     }
     .header::before {
       content: "";
@@ -28,7 +31,7 @@
       width: 100%;
       height: 100%;
       background:
-        linear-gradient(to top, rgba(255, 94, 98, 0.5), rgba(255, 183, 94, 0.2), rgba(255, 236, 179, 0)),
+        linear-gradient(to top, rgba(100, 179, 117, 0.5), rgba(200, 230, 201, 0.3), rgba(255, 255, 255, 0)),
         url('https://www.transparenttextures.com/patterns/leaf.png');
       background-size: cover;
       background-repeat: repeat;
@@ -44,25 +47,27 @@
       padding: 30px 20px;
     }
     .btn {
-      background-color: #007AFF;
+      background-color: #4CAF50;
       color: white;
       border: none;
       padding: 15px 30px;
       font-size: 18px;
-      border-radius: 8px;
+      border-radius: 12px;
       cursor: pointer;
       margin: 20px 0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: background-color 0.3s ease;
     }
     .btn:hover {
-      background-color: #005FCC;
+      background-color: #388E3C;
     }
     .comment-box {
       background: #fff;
-      padding: 15px;
-      border-radius: 8px;
+      padding: 20px;
+      border-radius: 16px;
       margin: 0 auto;
-      max-width: 400px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      max-width: 420px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
       cursor: pointer;
       transition: transform 0.1s;
     }
