@@ -134,8 +134,6 @@
           setTimeout(() => {
             copiedMsg.style.display = "none";
           }, 2000);
-          // 傳送複製次數給後端
-          sendCopyStats();
         });
       } else {
         const textarea = document.createElement("textarea");
@@ -148,31 +146,7 @@
         setTimeout(() => {
           copiedMsg.style.display = "none";
         }, 2000);
-        // 傳送複製次數給後端
-        sendCopyStats();
       }
-    }
-
-    // 傳送複製次數到後端
-    function sendCopyStats() {
-      fetch('https://your-backend-url.com/api/updateCopyStats', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          userId: 'your-user-id', // 用戶識別碼
-          action: 'copy_comment',
-          timestamp: new Date().toISOString()
-        })
-      })
-      .then(response => response.json())
-      .then(data => {
-        console.log('Successfully sent data:', data);
-      })
-      .catch(error => {
-        console.error('Error sending data:', error);
-      });
     }
   </script>
 
