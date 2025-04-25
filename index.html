@@ -104,6 +104,8 @@
       <p id="commentText"></p>
       <p class="copied" id="copiedMsg">已複製！請前往 Google 評論頁貼上</p>
     </div>
+
+    <p id="copyStats">已複製次數: 0</p>
   </div>
 
   <script>
@@ -115,18 +117,27 @@
       "眼鏡配得很好，Aaron的解說也很清楚，非常推薦！"
     ];
 
+    // 隨機顯示評論
     window.onload = () => {
       const randomComment = commentOptions[Math.floor(Math.random() * commentOptions.length)];
       document.getElementById("commentText").innerText = randomComment;
     };
 
+    // 跳轉至 Google 評論頁
     function goToGoogleReview() {
       window.location.href = "https://search.google.com/local/writereview?placeid=ChIJf09YS7XlZzQReDc6VS3l4Nk";
     }
 
+    // 複製評論內容並顯示複製訊息
     function copyComment() {
       const text = document.getElementById("commentText").innerText;
       const copiedMsg = document.getElementById("copiedMsg");
+      let copyCount = localStorage.getItem('copyCount') || 0;
+
+      // 更新複製次數並顯示
+      copyCount++;
+      localStorage.setItem('copyCount', copyCount);
+      document.getElementById("copyStats").innerText = `已複製次數: ${copyCount}`;
 
       if (navigator.clipboard) {
         navigator.clipboard.writeText(text).then(() => {
