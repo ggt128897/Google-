@@ -50,7 +50,7 @@
       font-weight: bold;
       border-radius: 6px;
       cursor: pointer;
-      margin: 20px 0;
+      margin: 10px;
       transition: background 0.3s;
     }
 
@@ -98,6 +98,7 @@
 
   <div class="content">
     <button class="btn" onclick="goToGoogleReview()">點我留下 Google 評論</button>
+    <button class="btn" onclick="nextComment()">換一句推薦語</button>
 
     <div class="comment-box" onclick="copyComment()">
       <p><strong>點我複製評論內容：</strong></p>
@@ -112,16 +113,26 @@
       "服務親切又專業，Aaron真的很細心，值得推薦！",
       "很棒的配鏡體驗，感謝Aaron用心介紹，五星推薦！",
       "推薦Aaron！服務親切仔細，讓人感覺很安心。",
-      "眼鏡配得很好，Aaron的解說也很清楚，非常推薦！"
+      "眼鏡配得很好，Aaron的解說也很清楚，非常推薦！",
+      "店員Aaron講解詳細，幫我找到最適合的鏡框，真的很用心！",
+      "第一次來就留下好印象，Aaron服務親切又專業，值得信賴！",
+      "環境明亮舒適，服務人員態度很好，Aaron讓人感到很放心！",
+      "原本很猶豫的我，經過Aaron的建議，立刻決定，超滿意！",
+      "舒服的購物環境，店員Aaron熱心又禮貌，整體感受非常愉快"
     ];
 
-    window.onload = () => {
-      const randomComment = commentOptions[Math.floor(Math.random() * commentOptions.length)];
-      document.getElementById("commentText").innerText = randomComment;
-    };
+    let currentIndex = -1;
 
-    function goToGoogleReview() {
-      window.location.href = "https://search.google.com/local/writereview?placeid=ChIJf09YS7XlZzQReDc6VS3l4Nk";
+    function pickComment() {
+      const now = new Date();
+      const hashSeed = now.getFullYear() * 1000000 + (now.getMonth() + 1) * 10000 + now.getDate() * 100 + now.getHours();
+      currentIndex = hashSeed % commentOptions.length;
+      document.getElementById("commentText").innerText = commentOptions[currentIndex];
+    }
+
+    function nextComment() {
+      currentIndex = (currentIndex + 1) % commentOptions.length;
+      document.getElementById("commentText").innerText = commentOptions[currentIndex];
     }
 
     function copyComment() {
@@ -148,6 +159,12 @@
         }, 2000);
       }
     }
+
+    function goToGoogleReview() {
+      window.location.href = "https://search.google.com/local/writereview?placeid=ChIJf09YS7XlZzQReDc6VS3l4Nk";
+    }
+
+    window.onload = pickComment;
   </script>
 
 </body>
