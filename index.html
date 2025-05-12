@@ -125,7 +125,7 @@
 
     function pickComment() {
       const now = new Date();
-      const hashSeed = now.getFullYear() * 1000000 + (now.getMonth() + 1) * 10000 + now.getDate() * 100 + now.getHours();
+      const hashSeed = now.getFullYear() * 1000000 + (now.getMonth() + 1) * 10000 + now.getDate() * 100 + now.getHours() + now.getSeconds();
       currentIndex = hashSeed % commentOptions.length;
       document.getElementById("commentText").innerText = commentOptions[currentIndex];
     }
@@ -163,6 +163,8 @@
     function goToGoogleReview() {
       window.location.href = "https://search.google.com/local/writereview?placeid=ChIJf09YS7XlZzQReDc6VS3l4Nk";
     }
+
+    setInterval(pickComment, 1000);  // 每秒鐘更新一次評論
 
     window.onload = pickComment;
   </script>
