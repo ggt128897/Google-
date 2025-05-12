@@ -18,7 +18,7 @@
       background-size: cover;
       background-position: center;
       position: relative;
-      color: white;
+      color: #222;
       padding: 80px 20px;
     }
 
@@ -27,14 +27,14 @@
       position: absolute;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: linear-gradient(to bottom, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0));
+      background: rgba(255, 255, 255, 0.6); /* 更濃的白色遮罩 */
       z-index: 0;
     }
 
     .header h1, .header p {
       position: relative;
       z-index: 1;
-      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+      text-shadow: 0 0 4px rgba(255, 255, 255, 0.8); /* 白邊陰影加強可讀性 */
     }
 
     .content {
